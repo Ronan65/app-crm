@@ -1,0 +1,90 @@
+<!-- HEADER -->
+<header class="label label-primary navbar navbar-fixed-top" style="min-height: 45px; background-image: linear-gradient(to bottom, #1eb0e9 0, #109adc 100%); margin:0; border-bottom:1px solid #0e5895">
+    <div class="col-2" style="padding-left:10px;">
+        <button id="bouton" type="button" class="btn btn-primary btn-xs pull-left bouton" onclick='toggle()' style="float:left">
+            <i class="icon-indent-right"></i>
+        </button>
+    </div>
+    <span class="col-8" style="float:left">
+        <h4>{{customer[0].Nomouraisonsociale}}</h4>
+    </span>
+    <a href="/customer/{{customer[0].id}}/edit" class="col-2" style="float:left; padding-right:10px;">
+        <!-- <button type="button" class="btn btn-primary btn-xs pull-right bouton">Edit</button> -->
+    </a>
+</header>
+
+<!-- SEARCH -->
+<nav class="navbar" style="margin:0; margin-top:45px; border-bottom:1px solid #aaa; min-height:45px; height:45px">
+    <span class="navbar-brand">Coordonnées</span>
+</nav>
+
+<div id="main" class="viewport">
+    <div class="frame">
+        <!-- MENU -->
+        <div id="menu" class="menu-slide affix" data-ng-controller="NavCtrl">   
+            <ul class="nav nav-pills nav-stacked">
+                <li active-nav>
+                    <a href='/' class="toggle-bouton"><i class="icon-list"></i> Liste client</a>
+                </li>
+                <!-- <li active-nav>
+                    <a href='/customer/new' class="toggle-bouton"><i class="icon-user"></i> Ajouter client</a>
+                </li>
+                  <li active-nav>
+                    <a href='/customer/contact' class="toggle-bouton"><i class="icon-user"></i> Liste contact</a>
+                </li>
+                  <li active-nav>
+                    <a href='/customer/contact/new' class="toggle-bouton"><i class="icon-user"></i> Ajouter contact</a>
+                </li>
+                  <li active-nav>
+                    <a href='/customer/machine' class="toggle-bouton"><i class="icon-user"></i> liste machines</a>
+                </li>
+                </li>
+                  <li active-nav>
+                    <a href='/customer/machine/new' class="toggle-bouton"><i class="icon-user"></i> Ajouter machines</a>
+                </li> -->
+                <li>
+                    <a href="" data-ng-click="logout()" class="toggle-bouton"><i class="icon-power-off"></i> Log out</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- CORPS -->
+        <div id="corp" class="corp">
+             <ul class="list-unstyled liste" style="margin:0; padding:0;">
+                <li>
+                    <i class="icon-phone"></i> {{customer[0].Telephone}}
+                </li>
+                <li>
+                    <i class="icon-phone"></i> {{customer[0].Telephone2}}
+                </li>
+                <li>
+                    <a href="mailto:">
+                    <i class="icon-envelope"></i> {{customer[0].EMail1}}
+                    </a>
+                </li>
+                <li>
+                     <a href="mailto:">
+                    <i class="icon-envelope"></i> {{customer[0].EMail2}}
+                    </a>
+                </li>
+                <li>
+                    <a href="comgooglemaps://?daddr={{customer[0].Adresse1}} {{customer[0].Adresse2}} {{customer[0].Codepostal}} {{customer[0].Ville}}" class="ng-binding">
+                    <i class="icon-building"></i> {{customer[0].Adresse1}} {{customer[0].Adresse2}} {{customer[0].Codepostal}} {{customer[0].Ville}}
+                    </a>
+                </li>
+            </ul>
+        <nav class="navbar" style="margin:0; border-bottom:1px solid #aaa; border-top:1px solid #aaa; min-height:45px; height:45px">
+            <span class="navbar-brand">Contact</span>
+        </nav>
+        <ul class="list-unstyled liste" style="margin:0; padding:0;">
+                <li>
+                    <i class="icon-user"></i> {{customer[0].Interlocuteur1}}
+                </li>
+                <li>
+                    <i class="icon-user"></i> {{customer[0].Interlocuteur2}}
+                </li>
+            </ul>
+        </div> <!-- fin Corps -->
+    </div> <!-- fin frame -->
+</div> <!-- fin viewport -->
+

@@ -1,0 +1,69 @@
+<header class="label label-primary navbar navbar-fixed-top" style="min-height: 45px; background-image: linear-gradient(to bottom, #1eb0e9 0, #109adc 100%); margin:0; border-bottom:1px solid #0e5895">
+   <div class="col-2" style="padding-left:10px;">
+        <button id="bouton" type="button" class="btn btn-primary btn-xs pull-left" onclick='toggle()' style="float:left">
+            <i class="icon-indent-right"></i>
+        </button>
+    </div>
+    <span class="col-8" style="float:left">
+        <i class="icon-list-alt"></i>
+        <h4>{{customer[0].company}}</h4>
+    </span>
+    <a href="/customer/contact/new" class="col-2" style="float:left; padding-right:10px;"><button type="button" class="btn btn-primary btn-xs pull-right">Add
+    </button></a>
+</header>
+
+<div id="main" class="viewport">
+  <div class="frame">
+    <!-- MENU -->
+    <div id="menu" class="menu-slide affix" data-ng-controller="NavCtrl">   
+        <ul class="nav nav-pills nav-stacked">
+            <li active-nav>
+                <a href='/' class="toggle-bouton"><i class="icon-list"></i> Liste client</a>
+            </li>
+            <li active-nav>
+                <a href='/customer/new' class="toggle-bouton"><i class="icon-user"></i> Ajouter client</a>
+            </li>
+              <li active-nav>
+                <a href='/customer/contact' class="toggle-bouton"><i class="icon-user"></i> Liste contact</a>
+            </li>
+              <li active-nav>
+                <a href='/customer/contact/new' class="toggle-bouton"><i class="icon-user"></i> Ajouter contact</a>
+            </li>
+              <li active-nav>
+                <a href='/customer/machine' class="toggle-bouton"><i class="icon-user"></i> liste machines</a>
+            </li>
+            </li>
+              <li active-nav>
+                <a href='/customer/machine/new' class="toggle-bouton"><i class="icon-user"></i> Ajouter machines</a>
+            </li>
+            <li>
+                <a href="" data-ng-click="logout()" class="toggle-bouton"><i class="icon-power-off"></i> Log out</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="corp" class="corp" style="padding-top: 20px;">
+      <ul class="list-group">
+          <li class="list-group-item" ng-repeat="contact in customer[0]"><a href="#/customer/{{customer[0].id}}/contact/{{$index}}">{{contact.name}}<span class="chevron"></span></a></li>
+      </ul>
+    </div>
+
+  </div> <!-- fin frame -->
+</div> <!-- fin viewport -->
+
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="btn-group btn-group-justified">  
+        <a href="/customer/{{customer.id}}" class="btn active navbar-btn">
+            <i class="icon-info-sign"></i>
+            <div class="tab-label">Info</div>
+        </a> 
+        <a href="/customer/{{customer.id}}/contact" class="btn navbar-btn">
+            <i class="icon-group"></i>
+            <div class="tab-label">Contacts</div>
+        </a>
+        <a href="/customer/{{customer.id}}/machine" class="btn navbar-btn">
+            <i class="icon-truck"></i>
+            <div class="tab-label">Machines</div>
+        </a>
+    </div>
+</nav> 

@@ -1,0 +1,26 @@
+<header class="label label-primary navbar navbar-fixed-top" style="min-height: 45px; background-image: linear-gradient(to bottom, #1eb0e9 0, #109adc 100%); margin:0; border-bottom:1px solid #0e5895">
+        <h4>CONNEXION</h4>
+</header>
+
+<div style="width:75%; margin: auto;">
+    <form class="form-horizontal" ng-submit="login()" method="post" style="margin-top: 100px; text-align:center" name="loginForm">
+        <div class="form-group input-group">
+        	<span class="input-group-addon"><i class="icon-user"></i></span>  
+            <input type="text" class="form-control" name="name" placeholder="Nom d'utilisateur" data-ng-model="username" required>
+        </div>
+
+        <div class="form-group input-group">
+        	<span class="input-group-addon"><i class="icon-key"></i></span>
+            <input type="password" class="form-control" name="prenom" placeholder="Mot de passe" data-ng-model="password" required>
+        </div>
+
+        <div style="text-align: center;">
+            <img src="/img/login_icon.jpg">
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary bouton" type="submit"><i class="icon-ok icon-white"></i> Se Connecter</button>
+        </div>
+
+    </form>
+</div>

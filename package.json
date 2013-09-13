@@ -1,0 +1,32 @@
+{
+    "name": "biton-crm",
+    "version": "0.0.1-2",
+    "author": "ronan&alex",
+    "description": "appliccation crm",
+    "contributors": [
+        {
+            "name": "Guillevic Ronan"
+        },
+        {
+            "name": "Pinto Alexandre"
+        }
+    ],
+    "scripts": {
+        "start": "coffee ./server/index.coffee"
+    },
+    "main": "./server/index.coffee",
+    "dependencies": {
+        "express": "3.3.0",
+        "ejs": "0.8.4",
+        "passport": "0.1.17",
+        "passport-local": "0.1.6",
+        "underscore": "1.5.1",
+        "validator": "1.1.3",
+        "w3c-cors": "~0.2.0",
+        "nedb": "0.8.6"
+    },
+    "subdomain": "biton-crm",
+    "engines": {
+        "node": "0.10.x"
+    }
+}

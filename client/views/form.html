@@ -1,0 +1,77 @@
+<!doctype html>
+
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/css/upload.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+</head>
+<body>
+	<!-- HEADER -->
+	<header class="label label-primary navbar navbar-fixed-top">
+		<h4>Mise à jour</h4>
+	</header>
+	<div class="jumbotron" style="padding-top: 100px">
+		<div id='alert' class="alert alert-danger" style="display:none;">Merci de sélectionner un fichier.</div>
+		<form action="/db/upload" method="POST" enctype="multipart/form-data">
+			<div id="target" name="target" class="target">
+				<span id="targetName">GLISSER VOTRE FICHIER ICI</span>
+			</div>
+			<div id="inputName" class="target" style="display:none;">
+				<span id="inputFileName"></span>
+			</div>
+			<p id="choix" style="padding-top: 20px; text-align: center;">OU</p>
+			<a href="#" id="choose" class="btn btn-primary btn-lg btn-block" onClick="getFile();">
+                <i class="icon-ok icon-white"></i> Ajouter un fichier
+            </a>
+			<input type="file" id="loadDB" name="loadDB" accept=".csv" style="padding-top: 20px; padding-left: 500px" onchange="displayDrag(this);checkfile(this);"/> 
+		</form>
+	</div>
+	<div class="validation">
+		 <div class="btn-group btn-group-justified btn-block form-actions" style="padding-right: 10px; padding-left: 10px;margin-top:40px;margin-bottom:20px;">  
+            <a href="#" id="submit" class="btn btn-success" onClick="upload(this);">
+                <i class="icon-ok icon-white"></i> Envoyer
+            </a>  
+            <a href="#" id="cancel" class="btn btn-danger" onClick="window.location.reload()">
+                <i class="icon-remove-sign icon-large"></i> Annuler
+            </a>
+        </div>
+		<div class="progress">
+		  <div id="progress-bar" class="progress-bar progress-bar-warning" role="progressbar"  aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+		    <span class="sr-only">60% Complete</span>
+		  </div>
+		</div>
+
+		<div class="alert hide">
+			<button class="close">X</button>
+		</div>
+	</div>
+
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      	<div class="modal-header">
+	        <h4 class="modal-title">Base de données en cour de création ...</h4>
+	    </div>
+        <div class="modal-body" style="text-align:center">
+        	<div class="jumbotron" style="text-align: center">
+			  <div class="container">
+			    <h5>INFORMATIONS</h5>
+			    <p id="date"></p>
+			    <p id="taille"></p>
+			    <p id="nbr"></p>
+			  </div>
+			</div>
+        </div>
+        <div class="modal-footer" style="display:none;">
+	        <a href="javascript:console.log(window);" class="btn btn-primary pull-left">Quitter l'application</a>
+	        <a href="/">Accéder à l'application</a>
+      	</div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+<script type="text/javascript" src="/lib/jquery.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="/script/scriptDrag.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!-- HEADER -->
+<header class="label label-primary navbar navbar-fixed-top" style="min-height: 45px; background-image: linear-gradient(to bottom, #1eb0e9 0, #109adc 100%); margin:0; border-bottom:1px solid #0e5895" data-ng-controller="NavCtrl">
+    <div class="col-xs-2" style="padding-left:10px; margin-top:5px;">
+        <a href="" data-ng-click="logout()" class="btn btn-primary btn-small pull-left bouton toggle-bouton"><i class="icon-power-off"></i> Sortir</a>
+    </div>
+    <span class="col-xs-8">
+       <h4>Liste Clients</h4>
+    </span>
+    <a href="/customer/new" class="col-xs-2" style="float:left; padding-right:10px;">
+        <!-- <button type="button" class="btn btn-primary btn-xs pull-right bouton">Add</button> -->
+    </a>
+</header>
+
+<!-- SEARCH -->
+<nav class="navbar navbar-fixed-top" style="margin:0; margin-top:45px; border-bottom:1px solid #aaa; min-height:45px; height:45px">
+    <form class="navbar-form navbar-left" role="search">
+        <div class="form-group input-group">
+            <span class="input-group-addon" style="height:30px; padding: 4px 12px;"><i class="icon-search"></i></span>
+            <input id="search" type="text" class="form-control" placeholder="Recherche" ng-model="query" style="height:30px;" on-blur="search" ng-focus="pageSize = 30;gotoTop()">
+            <span class="badge" style="position:absolute;right:20px;top:12px;">{{nbResults}} résultats</span>
+        </div>
+    </form>
+</nav>
+
+<div id="main" class="viewport">
+    <div class="frame">
+        <!-- MENU -->
+        <div id="menu" class="menu-slide affix" data-ng-controller="NavCtrl">   
+            <ul class="nav nav-pills nav-stacked">
+                <!-- <li active-nav>
+                    <a href='/' class="toggle-bouton"><i class="icon-list"></i> Liste client</a>
+                </li>
+                <li active-nav>
+                    <a href='/customer/new' class="toggle-bouton"><i class="icon-user"></i> Ajouter client</a>
+                </li>
+                <li active-nav>
+                    <a href='/customer/contact' class="toggle-bouton"><i class="icon-user"></i> Liste contact</a>
+                </li>
+                <li active-nav>
+                    <a href='/customer/contact/new' class="toggle-bouton"><i class="icon-user"></i> Ajouter contact</a>
+                </li>
+                <li active-nav>
+                    <a href='/customer/machine' class="toggle-bouton"><i class="icon-user"></i> liste machines</a>
+                </li>
+                <li active-nav>
+                    <a href='/customer/machine/new' class="toggle-bouton"><i class="icon-user"></i> Ajouter machines</a>
+                </li> -->
+                <li active-nav>
+                    <a href="#" class="toggle-bouton" onClick="javascript:window.open('https://localhost:8443/db/upload');javascript:window.close();"><i class="icon-upload"></i> Mise à jour donées</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- CORPS -->
+        <div id="corp" class="corp">
+            <div id"top"></div>
+            <ul class="list-unstyled liste" style="margin:0; padding:0;">
+                <li ng-repeat="customer in results | limitTo:pageSize ">
+                    <a class="" data-ng-href="/customer/{{customer._id}}" data-transition="slide" >
+                        <span style="font-size:18px;">{{customer.Nomouraisonsociale}}</span></br>
+                        <span style="font-size:10px; font-style:italic;">{{customer.Codepostal}} {{customer.Ville}}</span>
+                        <i class="icon-chevron-right pull-right"></i>
+                    </a>
+                </li>
+            </ul>
+            <div id="more" ng-click="pageSize=pageSize+30" ng-show="nbResults > 30">
+                <span>plus de résultats</span>
+            </div>
+
+            <div style="text-align: center;" ng-hide="nbResults > 0" onClick="javascript:document.getElementById('search').focus();">
+                <img src="/img/search.jpg">
+            </div>
+
+        </div> <!-- fin Corps -->
+    </div> <!-- fin frame -->
+</div> <!-- fin viewport -->
